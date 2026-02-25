@@ -230,7 +230,6 @@ class ComprehensionPage(Page):
     def before_next_page(player, timeout_happened):
         if player.comprehension_retries >= Constants.max_retries or timeout_happened:
             player.participant.failed_checks = True
-            player.participant.is_dropout = True
 
 
 page_sequence = [

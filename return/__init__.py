@@ -35,6 +35,7 @@ class Info(Page):
         return (
             player.participant.participate is True
             and player.participant.vars.get('consent') is True
+            and player.participant.vars.get('failed_checks') is not True
         )
 
     @staticmethod
@@ -43,6 +44,7 @@ class Info(Page):
                 timeslot=player.participant.time_slots,
                 participate=player.participant.participate,
                 role=player.participant.vars.get('role'),
+                #failed_checks=player.participant.vars.get('failed_checks')
             )
 
 class Return(Page):
@@ -54,8 +56,11 @@ class Return(Page):
         else:
             link = session_config['no_participate_completion']
 
+        failed = player.participant.vars.get('failed_checks', False)
+
         return dict(
             completionlink=link,
+            failed_checks=bool(failed)
         )
 
 page_sequence = [Info, Return]
