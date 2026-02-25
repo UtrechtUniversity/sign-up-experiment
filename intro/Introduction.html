@@ -1,0 +1,74 @@
+{{ block title }}
+Study information
+{{ endblock }}
+
+{{ block content }}
+
+<p>
+    Welcome to this registration website!
+    We would like to invite you to participate in an academic study that will be conducted later today.
+    On this page, you will find information about what participation involves and what the next steps are.
+</p>
+
+<p><strong>What does participation in the study involve?</strong></p>
+<ul>
+    <li>
+        This is an interactive study on decision-making, called "The Fashion Dilemma". You will be grouped with other participants and make repeated (abstract) decisions.
+    </li>
+    <li>
+        You will earn points based on both your own decisions and the decisions of other group members. At the end of the study, your points will be converted into money.
+    </li>
+    <li>
+        The study is expected to last approximately 30 minutes.
+    </li>
+</ul>
+
+<p><strong>What are the participation requirements?</strong></p>
+<ul>
+    <li>
+        Because this is an interactive experiment, a large group of participants must be active at the same time. Therefore, you will need to register for a specific participation time slot.
+    </li>
+    <li>
+        This is an academic study, and we require your consent to use your decision data for research purposes. If you do not provide consent, you will not be able to participate.
+    </li>
+    <li>
+        You will receive detailed instructions and answer a few comprehension questions to ensure you understand the study. Participation is only possible if you demonstrate sufficient understanding.
+    </li>
+</ul>
+
+<p><strong>Next steps:</strong></p>
+<ul>
+    <li>
+        Decide whether you would like to participate and select a time slot.
+    </li>
+    <li>
+        Read the information letter and provide consent for the use of your data.
+    </li>
+    <li>
+        Carefully review the detailed study instructions and complete the comprehension checks to confirm your eligibility.
+    </li>
+</ul>
+
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+
+    const form = document.querySelector("form");
+
+    form.addEventListener("submit", function (event) {
+
+        const confirmContinue = confirm(
+            "Have you understood the information?\n\nYou will move to the next page and cannot go back."
+        );
+
+        if (!confirmContinue) {
+            event.preventDefault();
+        }
+
+    });
+
+});
+</script>
+
+{{ next_button }}
+
+{{ endblock }}
