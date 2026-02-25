@@ -137,6 +137,10 @@ class ComprehensionPage(Page):
     form_model = 'player'
     form_fields = ['q_red_zero', 'q_blue_zero', 'q_red_half', 'q_blue_half']
 
+    @staticmethod
+    def is_displayed(player):
+        return player.participant.vars.get('consent')
+
     #timeout_seconds = Constants.comprehension_timeout_seconds
 
     #@staticmethod
