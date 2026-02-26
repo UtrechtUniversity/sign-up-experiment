@@ -38,9 +38,12 @@ class Player(BasePlayer):
         blank=True
     )
 
+    prolific_id = models.StringField(default=str(" "))
+
 # PAGES
 class Introduction(Page):
-    pass
+    def before_next_page(player, timeout_happened):
+        player.prolific_id = player.participant.label
 
 
 class Register(Page):
