@@ -25,6 +25,7 @@ class Player(BasePlayer):
         blank=False
     )
 
+
 # PAGES
 class Info(Page):
     form_model = 'player'

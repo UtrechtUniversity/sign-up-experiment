@@ -5,8 +5,8 @@ SESSION_CONFIGS = [
          name='sign_up',
          app_sequence=['intro', 'consent', 'comprehension', 'return'],
          num_demo_participants=500,
-         participate_completion='https://app.prolific.com/submissions/complete?cc=yes',
-         no_participate_completion='https://app.prolific.com/submissions/complete?cc=no',
+         participate_completion='https://app.prolific.com/submissions/complete?cc=CNIIU0JM',
+         no_participate_completion='https://app.prolific.com/submissions/complete?cc=C140VJN7',
      ),
 ]
 
@@ -16,6 +16,13 @@ SESSION_CONFIG_DEFAULTS = dict(
 
 PARTICIPANT_FIELDS = ["participate", "time_slots", "consent", "role", "failed_checks"]
 SESSION_FIELDS = []
+
+ROOMS = [
+    dict(
+        name='signup',
+        display_name='Sign-up survey for interactive group experiment',
+    ),
+]
 
 
 LANGUAGE_CODE = 'en'
