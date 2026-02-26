@@ -81,8 +81,8 @@ class Constants(BaseConstants):
     max_payment = 7.50
     points_per_euro_majority = 200
     points_per_euro_minority = 40
-    decision_pages_timeout_seconds = 60
-    other_pages_timeout_seconds = 20
+    decision_pages_timeout_seconds = 20
+    other_pages_timeout_seconds = 10
     introduction_timeout_seconds = 10*60
     comprehension_timeout_seconds = 5*60
     max_retries = 3

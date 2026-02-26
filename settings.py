@@ -4,9 +4,9 @@ SESSION_CONFIGS = [
      dict(
          name='sign_up',
          app_sequence=['intro', 'consent', 'comprehension', 'return'],
-         num_demo_participants=500,
-         participate_completion='https://app.prolific.com/submissions/complete?cc=CNIIU0JM',
-         no_participate_completion='https://app.prolific.com/submissions/complete?cc=C140VJN7',
+         num_demo_participants=200,
+         participate_completion='https://app.prolific.com/submissions/complete?cc=C10D93TZ',
+         no_participate_completion='https://app.prolific.com/submissions/complete?cc=C1NPREPM',
      ),
 ]
 

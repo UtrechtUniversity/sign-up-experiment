@@ -134,11 +134,6 @@
 </style>
 {% endblock %}
 
-{{ block title }}
-Detailed study information
-{{ endblock }}
-
-
 
 {% block content %}
 <div class="experiment-container">
@@ -148,21 +143,18 @@ Detailed study information
 
     <div class="section introduction">
         <h2><i class="fas fa-rocket icon-text"></i>Introduction</h2>
-        <p>Thank you for participating in the online academic study <b>{{ Constants.title }}</b>.</p>
-        <p>You will be invited to engage in a decision-making game. Please read the following instructions carefully!
-        </p>
+        <p>Thank you for registering for the online academic study <b>{{ Constants.title }}</b>. Please read the following instructions carefully!</p>
     </div>
-
     <div class="section overview">
     <h2><i class="fas fa-binoculars icon-text"></i>Game overview</h2>
-        <p>This is a multiplayer game with a total of <strong>{{ group_size }} players</strong>, spanning between <strong>{{ num_rounds_lower }} and {{ num_rounds_upper }} rounds</strong>.
+        <p>You will play a multiplayer game with a total of <strong>{{ group_size }} players</strong>, spanning between <strong>{{ num_rounds_lower }} and {{ num_rounds_upper }} rounds</strong>.
         Players are connected through a network and will interact with their neighbors—the ones directly linked to them.
 </p>
     <p>Each round, you and your co-players will be faced with a dilemma: You have to decide whether to wear a <b class="red-role">red shirt</b> or a <b class="blue-role">blue shirt</b>.
         Some players prefer red, while others prefer blue. One group holds a majority, but you don't know which one.</p>
 
     {% if role == Constants.majority %}
-        <p>In the game you will be playing, <strong>you prefer red</strong>, but your main objective is to coordinate your shirt choice with your neighbors.
+        <p>In the game, <strong>you prefer red</strong>, but your main objective is to coordinate your shirt choice with your neighbors.
             Every round, you earn points for choosing your preferred color, but the key to maximizing your rewards is to match the shirt choices of your neighbors.
             The more neighbors who choose the same shirt color as you, the more points you earn.</p>
         <p>Below, you find example payoff tables. For illustration purposes, let us assume that you have <strong>{{ degree }} neighbors</strong>.
@@ -223,6 +215,26 @@ Detailed study information
                 </tbody>
             </table>
         </div>
+
+        {% if role == Constants.majority %}
+        <br>
+        <div class="encouragement" style="background-color:#fdf3f3; text-align:left;">
+            <details>
+                <summary style="cursor:pointer; font-weight:bold; color:#c0392b;">
+                    <i class="fa-solid fa-folder"></i> Click to view example
+                </summary>
+                <div style="margin-top:15px; padding-left:10px;">
+                    <ul>
+                        <li>If you pick <strong><span class="red-role">Red</span></strong> together with 1 neighbor, you receive: <strong>15</strong> (Table 1) + <strong>28</strong> (Table 2) = <strong>43 points</strong>.</li>
+                        <li>If you pick <strong><span class="blue-role">Blue</span></strong> together with 1 neighbor, you receive: <strong>0</strong>  (Table 1) + <strong>45</strong> (Table 2) = <strong>45 points</strong>.</li>
+                    </ul>
+                </div>
+            </details>
+        </div>
+
+{% endif %}
+
+
     {% else %}
         <p>In this game, <strong>you prefer blue</strong>. Below, you will find a table displaying the fixed rewards for each shirt choice. Players with the same preferred color share the same reward structure.</p>
 
@@ -252,8 +264,9 @@ Detailed study information
                 </tbody>
             </table>
         </div>
-    {% endif %}
         <br>
+    {% endif %}
+
         <p>At the end of the game, points will be converted into pounds ({% if role == Constants.majority %}{{Constants.points_per_euro_majority}}
              {% else %}{{Constants.points_per_euro_minority}}
               {% endif %}
@@ -286,12 +299,12 @@ Detailed study information
     </div>
 
      <div class="section introduction">
-    <h2 class="stages-header"><i class="fas fa-clock"></i> Time per Round</h2>
+    <h2 class="stages-header"><i class="fas fa-clock"></i> Time per round</h2>
     <p>
         In each round, you will have <strong>{{ Constants.decision_pages_timeout_seconds }} seconds</strong>
         to select a t-shirt. After that, you will have another <strong>{{ Constants.other_pages_timeout_seconds }} seconds</strong>
         to view the choices made by your neighbors. Pay close attention! If you do not make a selection within the allotted time,
-        the game will end for you.
+        the game will end for you!
     </p>
 </div>
 

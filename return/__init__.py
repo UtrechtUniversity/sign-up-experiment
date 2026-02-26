@@ -21,7 +21,7 @@ class Group(BaseGroup):
 
 class Player(BasePlayer):
     confirm = models.BooleanField(
-        label="I confirm the above",
+        label="I confirm the above information",
         blank=False
     )
 

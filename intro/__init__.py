@@ -29,12 +29,32 @@ class Player(BasePlayer):
 
     time_slots = models.StringField(
         choices=[
-            "12:00–13:00",
-            "13:30–14:30",
-            "15:00–16:00",
+            "12:00 – 13:00",
+            #"13:30–14:30",
+            #"15:00–16:00",
         ],
-        label="Select the time slot you would like to participate in the study.\n"
-              "Please make sure you are available at that time slot.",
+        label="Below you find the available time slot(s) for participation.\n"
+              "Please only register if you are confident that you can attend the session at the selected time.",
+
+
+        blank=True
+    )
+
+    opt_out_reason = models.StringField(
+        choices=[
+            "Time slot not convenient",
+            "Study topic not interesting",
+            "Study seems too long",
+            "Privacy concerns",
+            "Other",
+        ],
+        widget=widgets.RadioSelect,
+
+        label="Could you indicate your (main) reason?"
+    )
+
+    opt_out_reason_text = models.LongStringField(
+        label="Please specify:",
         blank=True
     )
 
@@ -61,5 +81,14 @@ class Register(Page):
         participant.participate = player.participate
         participant.time_slots = player.time_slots
 
+class OptOut(Page):
+    form_model = 'player'
+    form_fields = ['opt_out_reason', 'opt_out_reason_text']
 
-page_sequence = [Introduction, Register,]
+    @staticmethod
+    def is_displayed(player):
+        return player.participate is False
+
+
+
+page_sequence = [Introduction, Register, OptOut]
