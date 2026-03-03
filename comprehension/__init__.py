@@ -82,11 +82,11 @@ class Constants(BaseConstants):
     points_per_euro_majority = 200
     points_per_euro_minority = 40
     decision_pages_timeout_seconds = 20
-    other_pages_timeout_seconds = 10
+    other_pages_timeout_seconds = 15
     introduction_timeout_seconds = 10*60
     comprehension_timeout_seconds = 5*60
     max_retries = 3
-    nrounds = 30
+    nrounds = 25
 
 class Subsession(BaseSubsession):
     pass
