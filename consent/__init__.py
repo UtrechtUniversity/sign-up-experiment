@@ -11,6 +11,7 @@ class C(BaseConstants):
     NAME_IN_URL = 'consent'
     PLAYERS_PER_GROUP = None
     NUM_ROUNDS = 1
+    BLUE_SLOTS = 2 # the number of participants that are assigned blue (after consenting); oversample to circumvent bottlenecks due to no-show.
 
 
 class Subsession(BaseSubsession):
@@ -44,11 +45,14 @@ class ConsentPage(Page):
             player.participant.vars['consent'] = True
             player.consent_timestamp = datetime.datetime.now().isoformat()
 
-            #assign role:
-            player.participant.role = random.choices(
-                ["Red", "Blue"],
-                weights=[0.8, 0.2],
-                k=1
-            )[0]
+            # assign role from quota:
+            session = player.session
+            blue_count = session.vars.get("blue_count", 0)
+            if blue_count < C.BLUE_SLOTS:
+                role = "Blue"
+                session.vars["blue_count"] = blue_count + 1
+            else:
+                role = "Red"
+            player.participant.role = role
 
 page_sequence = [ConsentPage]

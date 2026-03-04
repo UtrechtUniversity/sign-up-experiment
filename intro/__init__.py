@@ -29,12 +29,13 @@ class Player(BasePlayer):
 
     time_slots = models.StringField(
         choices=[
-            "14:00–15:00 Europe/Amsterdam (13:00–14:00 UK time)"
+            "15:00–16:00 Europe/Amsterdam (14:00–15:00 UK time)"
             #"13:30–14:30",
             #"15:00–16:00",
         ],
         label="Below you find the available time slot(s) for participation.\n"
-              "Please only register if you are confident that you can attend the session at the selected time.",
+              "Please only register if you are confident that you can attend the session at the selected time.\n"
+              "You will be invited for the session via Prolific.",
         blank=True
     )
 

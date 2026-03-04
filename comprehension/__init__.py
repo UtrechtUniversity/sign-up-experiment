@@ -79,8 +79,8 @@ class Constants(BaseConstants):
     lambda2 = 1.8
     base_payment = 2.50
     max_payment = 7.50
-    points_per_euro_majority = 200
-    points_per_euro_minority = 40
+    points_per_euro_majority = 167
+    points_per_euro_minority = 33
     decision_pages_timeout_seconds = 20
     other_pages_timeout_seconds = 15
     introduction_timeout_seconds = 10*60
