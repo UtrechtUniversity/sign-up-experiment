@@ -11,7 +11,7 @@ class C(BaseConstants):
     NAME_IN_URL = 'consent'
     PLAYERS_PER_GROUP = None
     NUM_ROUNDS = 1
-    BLUE_SLOTS = 2 # the number of participants that are assigned blue (after consenting); oversample to circumvent bottlenecks due to no-show.
+    BLUE_SLOTS = 10 # the number of participants that are assigned blue (after consenting); oversample to circumvent bottlenecks due to no-show.
 
 
 class Subsession(BaseSubsession):
