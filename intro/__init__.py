@@ -29,7 +29,7 @@ class Player(BasePlayer):
 
     time_slots = models.StringField(
         choices=[
-            "13:30–14:30 Europe/Amsterdam (12:30–13:30 UK time)"
+            "16:00–16:30 Europe/Amsterdam (15:00–15:30 UK time)"
             #"13:30–14:30",
             #"15:00–16:00",
         ],
